@@ -2,7 +2,7 @@ function salary (input) {
     let openTab = Number(input[0]);
     let salary = Number(input[1]);
 
-    for (let i = 0; i <= openTab; i++) {
+    for (let i = 2; i <= openTab + 2; i++) {
         let nameSait = input[i];
         switch (nameSait) {
             case "Facebook":
@@ -21,6 +21,7 @@ function salary (input) {
             break;
         } else if (i >= openTab && salary !== 0) {
            console.log(salary);
+           break;
         }
 
     }

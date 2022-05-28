@@ -1,4 +1,4 @@
-function salary (input) {
+function oscars (input) {
     let nameActor = input[0];
     let pointFromAcademy = Number(input[1]);
     let numOfTeacher = Number(input[2]);
@@ -18,17 +18,7 @@ function salary (input) {
     }
 }
 
-salary(["Zahari Baharov",
-"205",
-"4",
-"Johnny Depp",
-"45",
-"Will Smith",
-"29",
-"Jet Lee",
-"10",
-"Matthew Mcconaughey",
-"39"])
+oscars();
 
 
 
