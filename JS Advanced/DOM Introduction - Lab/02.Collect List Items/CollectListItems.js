@@ -1,5 +1,6 @@
 function extractText() {
-    let liElements = document.getElementsByName('li');
-    let result = document.getElementById('result');
-    result.include(liElements);
+    let liElements = document.getElementById('items');
+
+    let resultElement = document.getElementById('result');
+    resultElement.textContent = liElements.textContent;
 }
