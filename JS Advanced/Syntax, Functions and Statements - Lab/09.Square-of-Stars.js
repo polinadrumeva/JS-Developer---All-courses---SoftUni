@@ -1,6 +1,6 @@
 function solve(input = 5) {
     let num = Number(input);
-    const star = '*';
+    const star = '* ';
     if (num === ' ' || num === null || num === 0) {
         for(let i = 0; i < 5; i++) {
            console.log(`${star.repeat(5).trim()}`);
@@ -12,4 +12,4 @@ function solve(input = 5) {
     }
     
 }
-solve(6);
+solve(8);
