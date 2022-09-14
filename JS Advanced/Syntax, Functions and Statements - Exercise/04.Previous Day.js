@@ -1,10 +1,11 @@
-function solve(first, second, third) {
+function solve(year, month, date) {
 
-    let date = new Date(first, second, third);
-    date.setDate(date.getDate() - 1);
+    let resultDate = new Date(year, month -1, date);
+    resultDate.setDate(resultDate.getDate() - 1);
 
-    return date;
+console.log(`${resultDate.getFullYear()}-${resultDate.getMonth()+1}-${resultDate.getDate()}`);
     
 }
 
 solve(2016, 9, 30);
+solve(2016, 10, 1);
