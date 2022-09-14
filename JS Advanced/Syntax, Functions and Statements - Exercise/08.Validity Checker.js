@@ -22,7 +22,7 @@ function validate(first, second, third, fourth) {
     if(Number.isInteger(coordinates)) {
         console.log(`{${x1}, ${y1}} to {${x2}, ${y2}} is valid`);
     } else {
-        console.log(`{${x2}, ${y2}} to {${x2}, ${y2}} is invalid`);
+        console.log(`{${x1}, ${y1}} to {${x2}, ${y2}} is invalid`);
     }
 
 }
