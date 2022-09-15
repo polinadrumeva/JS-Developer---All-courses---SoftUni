@@ -25,3 +25,4 @@ function solve(first, second){
 }
 
 solve(8, 2);
+solve(6, 3);

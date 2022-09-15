@@ -2,10 +2,10 @@ function solve(input) {
     let array = [];
 
     for (let i = 0; i < input.length; i++) {
-        if (input[i] > array[0]) {
-            array.push(input[i]);
-        } else {
+        if (input[i] < 0) {
             array.unshift(input[i]);
+        } else {
+            array.push(input[i]);
         }
     }
 
@@ -15,3 +15,4 @@ function solve(input) {
 }
 
 solve([7, -2, 8, 9]);
+solve([3, -2, 0, -1]);
