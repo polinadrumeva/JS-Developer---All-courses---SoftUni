@@ -21,7 +21,7 @@ function solve(first, second){
         numbers[i] = sum;
     }
 
-    console.log(numbers);
+    return numbers;
 }
 
 solve(8, 2);

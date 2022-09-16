@@ -7,7 +7,8 @@ function solve(input, first, second) {
     let firstIndex = array.indexOf(first);
     let secondIndex = array.indexOf(second);
     let newArr = array.slice(firstIndex, secondIndex + 1);
-    console.log(newArr);
+
+    return newArr;
     
 }
 
