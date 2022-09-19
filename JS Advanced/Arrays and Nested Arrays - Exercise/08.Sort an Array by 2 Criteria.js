@@ -1,21 +1,29 @@
-function sort(input) {
-    let result = input.sort((a,b) =>b.length - a.length);
+function sorting(input) {
+    let result = input.sort((a,b) => {
+        if(a.length !== b.length) {
+            return a.length - b.length;
+        } else {
+            return a.localeCompare(b);
+        }
+    });
+
+    console.log(result.join("\n"));
   
 }
 
-sort(['alpha', 
+sorting(['alpha', 
 'beta', 
 'gamma']
 );
 
-sort(['Isacc', 
+sorting(['Isacc', 
 'Theodor', 
 'Jack', 
 'Harrison', 
 'George']
 );
 
-sort(['test', 
+sorting(['test', 
 'Deny', 
 'omen', 
 'Default']
