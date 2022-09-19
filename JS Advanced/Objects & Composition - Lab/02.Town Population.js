@@ -12,7 +12,7 @@ function solve(input) {
     }
 
     for (const key in towns) {
-        console.log(`${key}: ${towns[key]}`);
+        console.log(`${key} : ${towns[key]}`);
     }
 }
 

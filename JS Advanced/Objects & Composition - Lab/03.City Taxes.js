@@ -11,14 +11,8 @@ function solve(name, population, treasury) {
 
     }
 
-    city.collectTaxes();
-    console.log(city.treasury);
-    city.applyGrowth(5);
-    console.log(city.population);
+    return city;
     
 }
 
-solve('Tortuga',
-7000,
-15000
-);
+solve();

@@ -1,7 +1,7 @@
 function solve(name, population, treasury) {
     let city = {name, population, treasury};
 
-    console.log(city);
+    return city;
 }
 
 solve('Tortuga',
