@@ -10,13 +10,16 @@ function tictac(input) {
 
     for(let i = 1;i <= input.length; i++) {
         let turns = i;
+        let currentTurn = i;
         let cordinates = input[i-1];
         let choesenRow = cordinates[0];
         let choosenCol = cordinates[2];
 
         let choosenCell = dashboard[choesenRow][choosenCol];
 
-        let currentTurn = i;
+        if(isTheSamePalyer) {
+            currentTurn--;
+        }
 
         if(dashboard.some( x => x !== false) && turns == 10) {
             console.log("The game ended! Nobody wins :(");
@@ -24,18 +27,16 @@ function tictac(input) {
         }
         
         if(choosenCell !== false) {
-            currentTurn++;
+          
             isTheSamePalyer = true;
             console.log("This place is already taken. Please choose another!");
             continue;
         } else {
             if (currentTurn % 2 !== 0) {
                 dashboard[choesenRow][choosenCol] = firstPlayer;
-                isTheSamePalyer = false;
             }
             else if (currentTurn % 2 === 0)  {
                 dashboard[choesenRow][choosenCol] = secondPlayer;
-                isTheSamePalyer = false;
             }
 
            
@@ -67,9 +68,7 @@ function tictac(input) {
 
     for(let row = 0; row < dashboard.length; row++) {
         console.log(dashboard[row].join("\t").trim());
-    //    if(row !== dashboard.length - 1) {
-    //     console.log();
-    //    }
+    
     }
     
 }
