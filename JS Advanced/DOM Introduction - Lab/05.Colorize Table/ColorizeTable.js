@@ -1,8 +1,8 @@
 function colorize() {
-    let rowElement = document.querySelectorAll('tr');
+    let rowElement = document.querySelectorAll('table tr');
 
     for(let i = 0; i < rowElement.length; i++){
-        if(i % 2 == 1) {
+        if(i % 2 === 1) {
         rowElement[i].style.backgroundColor = 'teal';
         }
     };
