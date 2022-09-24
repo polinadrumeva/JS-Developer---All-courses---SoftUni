@@ -38,7 +38,7 @@ function notation(input) {
             result.push(total);
     }
 
-    console.log(result);
+    console.log(result.join());
 
 }
 
