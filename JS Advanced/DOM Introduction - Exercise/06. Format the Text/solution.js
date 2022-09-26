@@ -1,6 +1,6 @@
 function solve() {
   let textAreaElement = document.getElementById("input").value;
-  let text = textAreaElement.split(". ");
+  let text = textAreaElement.split(".").filter(x => x.length > 0);
   let resultElement = document.getElementById("output");
 
   for(let i = 0; i < text.length; i+=3) {
@@ -11,7 +11,7 @@ function solve() {
       }
     }
 
-    let resultText = result.join(". ").trim();  
+    let resultText = result.join(". ") + ".".trim();  
     resultElement.innerHTML += `<p>${resultText}</p>`;
   }
 }
