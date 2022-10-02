@@ -1,23 +1,14 @@
 function getFibonator() {
          let num1 = 0;
          let num2 = 1;
-         let curInnerSum = 0;
-         let count = 0;
-    return function inner () {
-        for (let i = 0; i <= 1; i++) {
-            count++;
-            curInnerSum = num1 + num2;
+    return function () {
+            let curInnerSum = num1 + num2;
             num1 = num2;
             num2 = curInnerSum;
-            if(count === ) {
-                return 1;
-            } else {
-                return num2;
-            }
-            
+           return num1;
         }
-    }
 }
+
 
 let fib = getFibonator();
 console.log(fib()); // 1
