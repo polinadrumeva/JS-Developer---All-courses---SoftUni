@@ -6,7 +6,7 @@ function sorting(data, command) {
         result = result.sort((a,b) => b-a );
     }
 
-    console.log(result);
+    return result;
 }
 
 sorting([14, 7, 17, 6, 8], 'asc');
