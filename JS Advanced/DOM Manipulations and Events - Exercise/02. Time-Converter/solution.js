@@ -1,4 +1,5 @@
 function attachEventsListeners() {
 
-    console.log('TODO:...');
+    let buttonsElement = document.getElementsByTagName('input[type=button]');
+    
 }
