@@ -1,7 +1,7 @@
 function sum(array, startIndex, endIndex) {
     let sum = 0;
     if(!Array.isArray(array)) {
-        return 'NaN';
+        return NaN;
     }
     if(startIndex < 0) {
         startIndex = 0;
