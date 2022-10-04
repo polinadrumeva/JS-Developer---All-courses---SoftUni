@@ -10,9 +10,8 @@ function playing(face, suit) {
         face, 
         suit: suits[suit],
         toString() {
-            let string = ''
-            string += this.face + this.suit;
-            console.log(string);
+            return this.face + this.suit;
+            
         }
     }
 }
