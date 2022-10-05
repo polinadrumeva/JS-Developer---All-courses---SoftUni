@@ -20,4 +20,22 @@ describe('checkSymmetry', () => {
         let result = isSymmetric(array);
         expect(result).to.be.true;
     });
+    
+    it('should return false on isSymmetric(["2",2])', () => {
+        expect(isSymmetric(["2", 2])).to.be.false;
+    });
+
+   
+    it('should return true on isSymmetric([2])', () => {
+        expect(isSymmetric([2])).to.be.true;
+    });
+
+    
+    it('should return true on isSymmetric([])', () => {
+        expect(isSymmetric([])).to.be.true;
+    });
+
+    it('should return true on isSymmetric([[1,2], [2], [1,2]])', () => {
+        expect(isSymmetric([[1,2], [2], [1,2]])).to.be.true;
+    });
 });

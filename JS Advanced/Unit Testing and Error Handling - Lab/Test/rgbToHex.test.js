@@ -42,4 +42,19 @@ describe('checkHEXColor', () => {
         let result = rgbToHexColor(200, 200, 200);
         expect(result).to.be.equals('#C8C8C8');
     });
+    it("no input test", function () {
+        expect(rgbToHexColor()).to.be.undefined;
+    });
+    it("should pad values with zeros", function () {
+        expect(rgbToHexColor(12, 13, 14)).to.equal("#0C0D0E");
+    });
+    it("should be undefined", function () {
+        expect(typeof rgbToHexColor("266", 12, 13)).to.equal("undefined");
+    });
+    it("test with 255", function () {
+        expect(rgbToHexColor(255, 255, 255)).to.equal("#FFFFFF");
+    });
+    it("test with zeros", function () {
+        expect(rgbToHexColor(0, 0, 0)).to.equal("#000000");
+    });
 })
