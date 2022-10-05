@@ -8,6 +8,7 @@ describe('checkSymmetry', () => {
         expect(result).to.be.false;
     });
 
+
     it('should return false if arent equals', () => {
         let array = [1,2,3];
         let result = isSymmetric(array);
