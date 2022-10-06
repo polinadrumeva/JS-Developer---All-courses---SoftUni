@@ -21,4 +21,5 @@ describe('isOddOrEven', () => {
     it('should return true information', () => {
         expect(isOddOrEven('see you soon')).to.be.equal('even');
     });
-})
+    
+});
