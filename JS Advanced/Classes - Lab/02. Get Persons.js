@@ -5,7 +5,6 @@ class Person {
         this.age = age;
         this.email = email;
         
-       
     }
 
     toString() {
