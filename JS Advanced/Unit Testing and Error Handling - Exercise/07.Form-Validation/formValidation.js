@@ -1,3 +1,4 @@
 function validate() {
-    // TODO
+    let usernameElement = document.getElementById('username');
+    let usernamePattern = //g;
 }
