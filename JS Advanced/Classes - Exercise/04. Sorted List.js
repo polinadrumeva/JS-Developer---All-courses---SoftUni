@@ -15,7 +15,7 @@ class List {
         if (index < 0 || index >= this.list.length) {
             throw new Error(`Index doesn't exist`);
         } else {
-            this.list.shift();
+            this.list.splice(index, 1);
             this.size--;
             return;
         }
