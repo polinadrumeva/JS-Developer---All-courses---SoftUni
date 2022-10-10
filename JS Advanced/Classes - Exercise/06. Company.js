@@ -3,45 +3,46 @@ class Company {
         this.departments = {};
     }
     addEmployee(name, salary, position, department) {
-        var departmentsArray = [];
         if(name === "" || name === undefined || name === null || salary === "" || salary === undefined || salary === null || Number(salary) < 0 ||
          position === "" || position === undefined || position === null || department === "" || department === undefined
          || department === null) {
          throw new Error("Invalid input!");
          }
 
-         if(!this.departments.hasOwnProperty(department)) {
-            this.departments[department] = [];
-            departmentsArray.push(department);
+         if(!this.departments[department]) {
+            this.departments[department] = {
+                averageSalary: 0,
+                sumSalary: 0,
+                employees: []
+            };
          }
 
-         this.departments[department].push({name, salary, position});
+         this.departments[department].sumSalary += Number(salary);
+         this.departments[department].employees.push({name, salary, position});
+         this.departments[department].averageSalary = this.departments[department].sumSalary / this.departments[department].employees.length;
+
          return `New employee is hired. Name: ${name}. Position: ${position}`;
     }
 
     bestDepartment() {
-        let best = '';
-        let bestSalary = 0;
+        let best = Object.entries(this.departments).sort(([nameOne, infoOne], [nameTwo, infoTwo]) => {
+            return infoTwo.averageSalary - infoOne.averageSalary;
+        })[0];
 
-        for (let i = 0; i < departmentsArray.length; i++) {
-            let sum = 0;
-            let averageSalary = 0;
-            for (let el of this.departments[departmentsArray[i]]) {
-                sum += el.salary;
-            }
-            averageSalary = sum / departmentsArray[i].length;
-            if(bestSalary < averageSalary) {
-                best = depart;
-                bestSalary = averageSalary;
-            }
-            
-        }
-        let result = '';
-        for (let el of this.departments[best].sort((a,b) => a.salary - b.salary).sort((a,b) => a.name.localeCompare(b.name))) {
-            result += `${el.name} ${el.salary} ${el.position}\n`;
+        best[1].employees = best[1].employees.sort((a,b) => {
+            return b.salary - a.salary || a.name.localeCompare(b.name);
+        });
+
+        let buffer = `Best Department is: ${best[0]}\n`;
+        buffer += `Average salary: ${best[1].averageSalary.toFixed(2)}\n`;
+        
+        for (let i = 0; i < best[1].employees.length; i++) {
+            let el = best[1].employees[i];
+            buffer += `${el.name} ${el.salary} ${el.position}`;
+            buffer += i === best[1].employees.length -1 ? "" : '\n'; 
         }
 
-        return `Best Department is: ${best}\n Average salary: ${bestSalary} \n ${result}`;
+        return buffer;
     }
 }
 
