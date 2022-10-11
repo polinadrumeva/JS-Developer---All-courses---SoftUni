@@ -6,7 +6,7 @@ function toStringExtension() {
         }
 
         toString() {
-            console.log(`Person (name: ${this.name}, email: ${this.email})`);
+            return `Person (name: ${this.name}, email: ${this.email})`;
         }
     }
     
@@ -17,7 +17,7 @@ function toStringExtension() {
         }
 
         toString() {
-           console.log(`Teacher (name: ${this.name}, email: ${this.email}, subject: ${this.subject})`);
+            return `Teacher (name: ${this.name}, email: ${this.email}, subject: ${this.subject})`;
         }
     }
 
@@ -28,7 +28,7 @@ function toStringExtension() {
         }
 
         toString() {
-            console.log(`Student (name: ${this.name}, email: ${this.email}, course: ${this.course})`);
+            return `Student (name: ${this.name}, email: ${this.email}, course: ${this.course})`;
         }
     }
 
