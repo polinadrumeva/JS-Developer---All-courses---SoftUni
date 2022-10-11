@@ -18,3 +18,6 @@ function personAndTeacher() {
         Teacher
     }
 }
+
+console.log(personAndTeacher());
+
