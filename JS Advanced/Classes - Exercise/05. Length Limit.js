@@ -1,25 +1,28 @@
 class Stringer {
     constructor(innerString, innerLength) {
         this.innerString = innerString;
-        this._innerString = innerString;
+        this.initial = innerString;
         this.innerLength = innerLength;  
     }
 
     increase(length) {
-        if(length < 0) {
-            length = 0;
-        }
+        this.innerLength += length;
     }
 
     decrease(length) {
-        if(length < 0) {
-            length = 0;
+        this.innerLength -= length;
+        if(this.innerLength < 0) {
+            this.innerLength = 0;
         }
-        return this._innerString = this._innerString.slice(-Number(length - 1));
     }
     
     toString() {
-        return this._innerString;
+        let result = this.innerString.slice(0, this.innerLength);
+        if(this.innerLength < this.initial.length) {
+            result += '...';
+        }
+
+        return result;
     }
 }
 
