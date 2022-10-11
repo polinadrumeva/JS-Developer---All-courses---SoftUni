@@ -13,8 +13,6 @@ function createPerson(firstName, lastName) {
             }
         }
     }
-   
-
 }
 
 // let person = createPerson("Peter", "Ivanov");
