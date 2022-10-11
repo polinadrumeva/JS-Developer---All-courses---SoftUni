@@ -20,11 +20,11 @@ function  solution() {
     class BirthdayBalloon extends PartyBalloon {
         constructor(color, hasWeight, ribbonColor, ribbonLegth, text) {
             super(color, hasWeight, ribbonColor, ribbonLegth)
-            this.text = text;
+            this._text = text;
         }
 
         get text() {
-            return this.text;
+            return this._text;
         }
     }
 
