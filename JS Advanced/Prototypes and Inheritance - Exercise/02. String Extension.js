@@ -1,6 +1,5 @@
 (function solve() {
     String.prototype.ensureStart = function(str) {
-        let result = '';
     if(!this.startsWith(str)) {
         return str + this;
     }
@@ -8,7 +7,6 @@
     }
 
     String.prototype.ensureEnd = function(str) {
-        let result = '';
     if(!this.endsWith(str)) {
         return this + str;
     }
@@ -56,7 +54,6 @@ str = str.ensureStart('hello ');
 console.log(str)
 str = str.ensureEnd('hello ');
 console.log(str)
-
 str = str.truncate(16);
 str = str.truncate(14);
 str = str.truncate(8);
