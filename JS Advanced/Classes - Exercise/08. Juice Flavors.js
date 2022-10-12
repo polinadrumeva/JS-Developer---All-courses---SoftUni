@@ -1,31 +1,31 @@
 function solve(input) {
- let map = new Map();
- let result = new Map();
+ let objInput = {};
+ let result = {};
 
  for(let i = 0; i < input.length; i++) {
     let arrArg = input[i].split(' => ');
-    if(!map.has(arrArg[0])) {
-        map.set(arrArg[0], Number(arrArg[1]));
+    if(!objInput.hasOwnProperty(arrArg[0])) {
+        objInput[arrArg[0]] = Number(arrArg[1]);
     } else {
-        map[arrArg[0]] += Number(arrArg[1]);
+        objInput[arrArg[0]] += Number(arrArg[1]);
     }
 
-    
-    if (map.get(arrArg[0]) >= 1000) {
-        result.set(arrArg[0], 0 + parseInt(arrArg[0] / 1000));
-        let total = map.get(arrArg[0]);
-        let rest = Math.floor(total / 1000);
-        result[arrArg[0]] += rest;
-        map[arrArg[0]] %= 1000;
-    }
+    if (!result.hasOwnProperty(arrArg[0]) && objInput[arrArg[0]] >= 1000) {
+        result[arrArg[0]] = parseInt(objInput[arrArg[0]] / 1000);
+        objInput[arrArg[0]] %= 1000;
+    } else if (result.hasOwnProperty(arrArg[0]) && objInput[arrArg[0]] >= 1000) {
+        result[arrArg[0]] += parseInt(objInput[arrArg[0]] / 1000);
+        objInput[arrArg[0]] %= 1000;
+    }}
 
+    for (let [k,v] of Object.entries(result)) {
+        console.log(`${k} => ${v}`);
+    }
  }
 
-for (let [k,v] of result) {
-    console.log(`${k} => ${v}`);
-}
 
-}
+
+
 
 solve(['Orange => 2000',
 'Peach => 1432',
