@@ -28,6 +28,12 @@ describe("PaymentPackage", function() {
         assert.equal(package.value, 10);
     });
 
+    it("should return correct data", function() {
+        let package = new PaymentPackage("Tests", 10);
+        assert.equal(package.name, 'Tests');
+        assert.equal(package.value, 10);
+    });
+
     it("should return correct vat", function() {
         let package = new PaymentPackage("Tests", 10);
         assert.equal(package.VAT, 20);
@@ -69,6 +75,14 @@ describe("PaymentPackage", function() {
         let package = new PaymentPackage("Tests", 10);
         let actualString = package.toString();
         let expectedString = `Package: Tests\n- Value (excl. VAT): 10\n- Value (VAT 20%): 12`;
+        assert.equal(actualString, expectedString);
+    });
+
+    it("should return correct toString with false", function() {
+        let package = new PaymentPackage("Tests", 10);
+        package.active = false;
+        let actualString = package.toString();
+        let expectedString = `Package: Tests (inactive)\n- Value (excl. VAT): 10\n- Value (VAT 20%): 12`;
         assert.equal(actualString, expectedString);
     });
 });
