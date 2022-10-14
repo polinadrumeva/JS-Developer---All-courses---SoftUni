@@ -9,16 +9,19 @@ function solve() {
     let furnitureListElement = document.getElementById("furniture-list");
 
     function added(event) {
-        let modelListElement = document.createElement("td");
-        modelListElement.textContent = modelElement.value;
-        let priceListElement = document.createElement("td");
-        priceListElement.textContent = priceElement.value.toFixed(2);
-        let trElement = document.createElement("tr");
-        trElement.classList.add("info");
-        trElement.appendChild(createCell(modelListElement));
-        trElement.appendChild(createCell(priceListElement));
+        if(modelElement.value !== '' && yearElement.value !== '' && descriptionElement.value !== '' 
+        && priceElement.value >= 0 && Number(priceElement.value) > 0 && Number(yearElement.value) > 0) {
+            let trElement = document.createElement("tr");
+            trElement.classList.add("info");
+            furnitureListElement.appendChild(trElement);
+            let modelListElement = document.createElement("td");
+            modelListElement.textContent = modelElement.value;
+            trElement.appendChild(modelListElement);
+            let priceListElement = document.createElement("td");
+            priceListElement.textContent = Number(priceElement.value).toFixed(2);
+            trElement.appendChild(priceListElement);
+        }
 
-       furnitureListElement.appendChild(trElement);
     }
    
 }
