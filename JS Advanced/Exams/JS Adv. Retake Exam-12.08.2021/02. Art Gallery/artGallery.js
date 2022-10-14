@@ -63,7 +63,20 @@ class ArtGallery {
     }
 
     showGalleryInfo(criteria) {
-        
+        let result = '';
+        if(criteria === 'article') {
+            result += `Articles information:\n`;
+            for (let el of this.listOfArticles) {
+                result += `${el.articleModel} - ${el.articleName} - ${el.quantity}\n`;
+            }
+        } else if (criteria === 'guest') {
+            result += `Guests information:\n`;
+            for (let el of this.guests) {
+                result += `${el.guestName} - ${el.purchaseArticle}\n`;
+            }
+        }
+
+        return result.trim();
     }
 }
 
