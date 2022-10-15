@@ -1,55 +1,73 @@
 window.addEventListener('load', solve);
 
 function solve() {
-    let genreElement = document.querySelector('#genre');
-    let nameElement = document.querySelector('#name');
-    let authorElement = document.querySelector('#author');
-    let dateElement = document.querySelector('#date');
-    let songsListElement = document.getElementsByClassName('all-hits-container')[0];
+    let genre = document.querySelector('#genre');
+    let name = document.querySelector('#name');
+    let author = document.querySelector('#author');
+    let date = document.querySelector('#date');
+    let addBtn = document.querySelector('#add-btn');
+    let div = document.querySelector('.all-hits-container');
+    let totalLikes = document.querySelector('#total-likes div p');
+    let divSavedSongs = document.querySelector('.saved-container');
 
-    let addButtonElement =document.getElementById('add-btn');
-    addButtonElement.addEventListener('click', addedSong);
+    addBtn.addEventListener('click', add);
 
-    function addedSong(event) {
-        event.preventDefault();
-        if(genreElement.value !== '' && authorElement.value !== '' && nameElement.value !== '' && dateElement.value !== ''){
-        let divElement =document.createElement('div');
-        divElement.classList.add('hits-info');
-        
-        let h2Element = document.createElement('h2');
-        h2Element.textContent = `Genre: ${genreElement.value}`;
-        divElement.appendChild(h2Element);
-        let h22Element = document.createElement('h2');
-        h22Element.textContent = `Name: ${nameElement.value}`;
-        divElement.appendChild(h22Element);
-        let h222Element = document.createElement('h2');
-        h222Element.textContent = `Author: ${authorElement.value}`;
-        divElement.appendChild(h222Element);
-        let h3Element = document.createElement('h3');
-        h3Element.textContent = `Date: ${dateElement.value}`;
-        divElement.appendChild(h3Element);
-        let saveButton = document.createElement('button');
-        saveButton.classList.add('save-btn');
-        saveButton.textContent = 'Save song';
-        divElement.appendChild(saveButton);
-        let likeButton = document.createElement('button');
-        likeButton.classList.add('like-btn');
-        likeButton.textContent = 'Like song';
-        divElement.appendChild(likeButton);
-        let deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-btn');
-        deleteButton.textContent = 'Delete';
-        divElement.appendChild(deleteButton);
-
-        songsListElement.appendChild(divElement);
-        clearInputs(genreElement, nameElement, authorElement, dateElement); 
+    function add(e) {
+        if (genre.value !== '' && name.value !== '' && author.value !== '' && date.value !== '') {
+            allHits(e, genre.value, name.value, author.value, date.value);
+            clearInputs();
         }
     }
 
-    function clearInputs(genreElement, nameElement, authorElement, dateElement) {
-        genreElement.value = '';
-        nameElement.value = '';
-        authorElement.value = '';
-        dateElement.value = '';
+    function allHits(e, genre, name, author, date) {
+        e.preventDefault();
+
+        let divHitsInfo = htmlGenerator('div', '', div);
+        divHitsInfo.setAttribute('class', 'hits-info');
+        let img = htmlGenerator('img', '', divHitsInfo);
+        img.setAttribute('src', './static/img/img.png');
+        htmlGenerator('h2', `Genre: ${genre}`, divHitsInfo);
+        htmlGenerator('h2', `Name: ${name}`, divHitsInfo);
+        htmlGenerator('h2', `Author: ${author}`, divHitsInfo);
+        htmlGenerator('h3', `Date: ${date}`, divHitsInfo);
+
+        let saveSongBtn = htmlGenerator('button', 'Save song', divHitsInfo);
+        saveSongBtn.setAttribute('class', 'save-btn');
+        saveSongBtn.addEventListener('click', (e) => {
+            e.target.parentNode.remove();
+            divHitsInfo.removeChild(saveSongBtn);
+            divHitsInfo.removeChild(likeSongBtn);
+            divSavedSongs.appendChild(divHitsInfo);
+        })
+
+        let likeSongBtn = htmlGenerator('button', 'Like song', divHitsInfo);
+        likeSongBtn.setAttribute('class', 'like-btn');
+        likeSongBtn.addEventListener('click', (e) => {
+            let likes = Number(totalLikes.textContent.split('Total Likes: ')[1]);
+            totalLikes.textContent = `Total Likes: ${Number(likes) + 1}`;
+            likeSongBtn.setAttribute('disabled', 'disabled');
+        });
+
+        let deleteBtn = htmlGenerator('button', 'Delete', divHitsInfo);
+        deleteBtn.setAttribute('class', 'delete-btn');
+        deleteBtn.addEventListener('click', (e) => {
+            e.target.parentNode.remove();
+        })
+    }
+
+    function htmlGenerator(tagName, content, parent) {
+        let el = document.createElement(tagName);
+        el.textContent = content;
+        if (parent) {
+            parent.appendChild(el);
+        }
+        return el;
+    }
+
+    function clearInputs() {
+        genre.value = '';
+        name.value = '';
+        author.value = '';
+        date.value = '';
     }
 }
