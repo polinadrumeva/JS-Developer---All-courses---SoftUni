@@ -42,24 +42,24 @@ class LibraryCollection {
     getStatistics(bookAuthor) {
         let result = '';
         result += `The book collection has ${this.capacity - this.books.length} empty spots left.\n`;
-        if(bookAuthor === undefined) {
+        if(!bookAuthor) {
            let sorted = this.books.sort((a,b) => b.bookName - a.bookName);
            for (let el of sorted) {
-                result += `'${this.bookName} == ${this.bookAuthor} - ${this.payed ? 'Not Paid' : 'Nas Paid'}.\n`;
+                result += `'${el.bookName} == ${el.bookAuthor} - ${el.payed ? 'Has Paid' : 'Not Paid'}.\n`;
            }
         } else {
-            let searched = this.books.find(x=> x.bookAuthor === bookAuthor);
+            let searched = this.books.filter(x => x.bookAuthor === bookAuthor);
             if(!searched) {
                 throw new Error(`${bookAuthor} is not in the collection.`);
             }
 
             for (let el of searched) {
-                result += `'${this.bookName} == ${this.bookAuthor} - ${this.payed ? 'Not Paid' : 'Has Paid'}.\n`;
+                result += `'${el.bookName} == ${el.bookAuthor} - ${el.payed ? 'Has Paid' : 'Not Paid'}.\n`;
             }
 
         }
 
-        return result.trimEnd();
+        return result;
     }
 }
 
@@ -84,3 +84,4 @@ class LibraryCollection {
 const library = new LibraryCollection(2)
 console.log(library.addBook('Don Quixote', 'Miguel de Cervantes'));
 console.log(library.getStatistics('Miguel de Cervantes'));
+
