@@ -66,7 +66,6 @@ describe("Rent Car Tests", function() {
             assert.equal(rentCar.checkBudget(10, 2, 2), 'You need a bigger budget!');
         });
        
-       
     });
     
 });
