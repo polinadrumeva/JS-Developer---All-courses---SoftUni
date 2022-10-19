@@ -45,7 +45,7 @@ class LibraryCollection {
         if(!bookAuthor) {
            let sorted = this.books.sort((a,b) => b.bookName - a.bookName);
            for (let el of sorted) {
-                result += `'${el.bookName} == ${el.bookAuthor} - ${el.payed ? 'Has Paid' : 'Not Paid'}.\n`;
+                result += `${el.bookName} == ${el.bookAuthor} - ${el.payed ? 'Has Paid' : 'Not Paid'}.\n`;
            }
         } else {
             let searched = this.books.filter(x => x.bookAuthor === bookAuthor);
@@ -54,7 +54,7 @@ class LibraryCollection {
             }
 
             for (let el of searched) {
-                result += `'${el.bookName} == ${el.bookAuthor} - ${el.payed ? 'Has Paid' : 'Not Paid'}.\n`;
+                result += `${el.bookName} == ${el.bookAuthor} - ${el.payed ? 'Has Paid' : 'Not Paid'}.\n`;
             }
 
         }
