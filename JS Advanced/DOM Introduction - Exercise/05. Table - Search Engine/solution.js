@@ -2,17 +2,16 @@ function solve() {
    document.querySelector('#searchBtn').addEventListener('click', onClick);
 
    function onClick() {
-      let searchedInput = document.getElementById("searchField").value;
+      let inputElement = document.getElementById('searchField');
+      let rows = document.querySelectorAll('tbody tr');
 
-      let tableData = document.getElementsByTagName("tbody");
+      for (let row of rows) {
+         row.classList.remove('select')
 
-      for (const row of tableData) {
-         let currentRow = row.textContent;
-         if (searchedInput && currentRow.indexOf(searchedInput) >= 0) {
-            row.style.background = 'yellow';
+         if (row.innerHTML.includes(inputElement.value) && inputElement.value !== '') {
+            row.className = 'select';
          }
       }
-   
-
+      inputElement.value = '';
    }
 }
