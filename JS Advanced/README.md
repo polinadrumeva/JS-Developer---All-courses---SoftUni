@@ -14,7 +14,9 @@
 12. [**Advanced Functions - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Advanced%20Functions%20-%20Exercise)
 13. [**Unit Testing and Error Handling - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Unit%20Testing%20and%20Error%20Handling%20-%20Lab)
 14. [**Unit Testing and Error Handling - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Unit%20Testing%20and%20Error%20Handling%20-%20Exercise)
-15. Classes
-17. Prototypes and Inheritance
+15. [**Classes - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Classes%20-%20Lab)
+16. [**Classes - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Classes%20-%20Exercise)
+17. [**Prototypes and Inheritance - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Prototypes%20and%20Inheritance%20-%20Lab)
+18. [**Prototypes and Inheritance - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Prototypes%20and%20Inheritance%20-%20Exercise)
 19. Exam Preparation
 21. Regular Exam
