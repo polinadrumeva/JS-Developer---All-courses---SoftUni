@@ -11,7 +11,7 @@ function solve() {
         const data = await response.json();
         stopName = data.name;
         infoTabElement.textContent = `Next stop ${stopName}`;
-        firstStop = data.next;
+        firstStop = stopName;
         departButton.setAttribute('disabled', 'disabled');
         arriveButton.removeAttribute('disabled', 'disabled');
        
