@@ -1,83 +1,24 @@
 [
     {
-        "name": "Italy",
-        "topLevelDomain": [
-            ".it"
+        "name": {
+            "common": "Italy",
+            "official": "Italian Republic",
+            "nativeName": {
+                "ita": {
+                    "official": "Repubblica italiana",
+                    "common": "Italia"
+                }
+            }
+        },
+        "capital": [
+            "Rome"
         ],
-        "alpha2Code": "IT",
-        "alpha3Code": "ITA",
-        "callingCodes": [
-            "39"
-        ],
-        "capital": "Rome",
         "altSpellings": [
             "IT",
             "Italian Republic",
             "Repubblica italiana"
         ],
-        "subregion": "Southern Europe",
         "region": "Europe",
-        "population": 59554023,
-        "latlng": [
-            42.83333333,
-            12.83333333
-        ],
-        "demonym": "Italian",
-        "area": 301336.0,
-        "gini": 35.9,
-        "timezones": [
-            "UTC+01:00"
-        ],
-        "borders": [
-            "AUT",
-            "FRA",
-            "SMR",
-            "SVN",
-            "CHE",
-            "VAT"
-        ],
-        "nativeName": "Italia",
-        "numericCode": "380",
-        "flags": {
-            "svg": "https://flagcdn.com/it.svg",
-            "png": "https://flagcdn.com/w320/it.png"
-        },
-        "currencies": [
-            {
-                "code": "EUR",
-                "name": "Euro",
-                "symbol": "€"
-            }
-        ],
-        "languages": [
-            {
-                "iso639_1": "it",
-                "iso639_2": "ita",
-                "name": "Italian",
-                "nativeName": "Italiano"
-            }
-        ],
-        "translations": {
-            "br": "Italia",
-            "pt": "Itália",
-            "nl": "Italië",
-            "hr": "Italija",
-            "fa": "ایتالیا",
-            "de": "Italien",
-            "es": "Italia",
-            "fr": "Italie",
-            "ja": "イタリア",
-            "it": "Italia",
-            "hu": "Olaszország"
-        },
-        "flag": "https://flagcdn.com/it.svg",
-        "regionalBlocs": [
-            {
-                "acronym": "EU",
-                "name": "European Union"
-            }
-        ],
-        "cioc": "ITA",
-        "independent": true
+        "population": 59554023
     }
 ]

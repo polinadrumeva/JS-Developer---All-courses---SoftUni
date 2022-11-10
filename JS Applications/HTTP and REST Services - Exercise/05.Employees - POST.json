@@ -1,0 +1,15 @@
+{
+    "status": "success",
+    "data": {
+        "status": "success",
+        "data": {
+            "id": 25,
+            "employee_name": "Polina Drumeva",
+            "employee_salary": 8900,
+            "employee_age": 30
+        },
+        "message": "Successfully! Record has been added.",
+        "id": 3713
+    },
+    "message": "Successfully! Record has been added."
+}
