@@ -1,6 +1,6 @@
 function attachEvents() {
     document.getElementById('submit').addEventListener('click', onPost);
-    document.getElementById('refresh').addEventListener('click', reloadAll);
+    document.getElementById('refresh').addEventListener('click', getComments);
 
     async function onPost() {
         const name = document.getElementsByName('author').values[0];
@@ -10,11 +10,17 @@ function attachEvents() {
     }
 }
 
+function reloadAll(data) {
+    const textarea = document.getElementById('messages')
+    const datas = Object.values(data).map(entry => `${entry.author}: ${entry.content}`).join('\n');
+    textarea.textContent = datas;
+}
+
 async function getComments() {
     const response = await fetch('http://localhost:3030/jsonstore/messenger');
     const data = response.json();
 
-    return Object.values(data);
+    reloadAll(data);
 }
 
 async function postComment(comment) {
