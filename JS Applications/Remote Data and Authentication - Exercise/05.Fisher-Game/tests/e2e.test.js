@@ -4,8 +4,8 @@ const { expect } = require('chai');
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 
 const interval = 300;
-const DEBUG = false;
-const slowMo = 500;
+const DEBUG = true;
+const slowMo = 1000;
 
 const mockData = {
   users: [
@@ -295,7 +295,7 @@ describe('E2E tests', function () {
       expect(postData.captureTime).to.equal(data.captureTime);
     });
 
-    it("non-author can't click on other post", async () => {
+    it.only("non-author can't click on other post", async () => {
       await loginUser();
       const data = mockData.catalog[1];
       const { get } = await handle(endpoints.catalog);
@@ -314,7 +314,7 @@ describe('E2E tests', function () {
       expect(result.length).to.be.equals(2);
     });
 
-    it('author can click on other post', async () => {
+    it.only('author can click on other post', async () => {
       await loginUser();
       const data = mockData.catalog[0];
       const { get } = await handle(endpoints.catalog);
@@ -333,7 +333,7 @@ describe('E2E tests', function () {
       expect(result.length).to.be.equals(2);
     });
 
-    it('edit makes correct API call for logged in user', async () => {
+    it.only('edit makes correct API call for logged in user', async () => {
       await loginUser();
       const data = mockData.catalog[0];
       await page.goto(host);
@@ -354,7 +354,7 @@ describe('E2E tests', function () {
       expect(postData.angler).to.contains(data.angler);
     });
 
-    it('delete makes correct API call for logged in user', async () => {
+    it.only('delete makes correct API call for logged in user', async () => {
       await loginUser();
       const data = mockData.catalog[0];
       await page.goto(host);
