@@ -1,45 +1,36 @@
 function attachEvents() {
-    document.getElementById('submit').addEventListener('click', onPost);
-    document.getElementById('refresh').addEventListener('click', getComments);
+    document.getElementById('submit')
+    .addEventListener('click', onSubmit)
 
-    function onPost() {
-        const name = document.getElementsByName('author')[0];
-        const content = document.getElementsByName('content')[0];
+    document.getElementById('refresh')
+    .addEventListener('click', onRefresh);
 
-        const comment = {
-            author: name.value, 
-            content: content.value
-        };
-        name.value = "";
-        content.value = "";
-        postComment(comment);
+    const displayArea = document.getElementById('messages');
+
+    async function onSubmit(){
+        let author = document.querySelector('[name="author"]').value;
+        let content = document.querySelector('[name="content"]').value;
+
+        await fetch(`http://localhost:3030/jsonstore/messenger`, {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({author, content})
+        })
+        console.log(author, content);
     }
-}
 
-function reloadAll(data) {
-    const textarea = document.getElementById('messages');
-    const datas = Object.values(data).map(entry => `${entry.author}: ${entry.content}`).join('\n');
-    textarea.textContent = datas;
-}
+    async function onRefresh() {
+        let response = await fetch(`http://localhost:3030/jsonstore/messenger`);
+        let data = await response.json();
+        let output = [];
+        
+        for (const message of Object.values(data)) {
+            output.push(`${message.author}: ${message.content}`);
+        }
+        displayArea.value = output.join('\n');
 
-async function getComments() {
-    const response = await fetch("http://localhost:3030/jsonstore/messenger");
-    const data = response.json();
-
-    reloadAll(data);
-}
-
-async function postComment(comment) {
-    const response = await fetch("http://localhost:3030/jsonstore/messenger", {
-        method: "post", 
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(comment)
-    });
-
-    getComments();
-
+        console.log(data);
+    }
 }
 
 attachEvents();

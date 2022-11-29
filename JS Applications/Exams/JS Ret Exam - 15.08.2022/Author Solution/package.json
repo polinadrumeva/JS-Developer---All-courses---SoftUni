@@ -1,7 +1,7 @@
 {
-  "name": "pet-care",
+  "name": "sole-mates",
   "version": "1.0.0",
-  "description": "Pet Care Single Page Application",
+  "description": "Sole Mates Single Page Application",
   "main": "index.html",
   "scripts": {
     "test": "mocha tests",
@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "http-server": "0.12.3",
-    "playwright-chromium": "1.9.2"
+    "playwright-chromium": "1.9.2",
+    "mocha": "8.3.2",
+    "chai": "4.3.4"
   }
 }

@@ -1,111 +1,111 @@
-window.onload = attachEvents;
+function solve() {
+    const baseUrl = 'http://localhost:3030/jsonstore/collections/books';
+    const loadButton = document.getElementById('loadBooks');
+    const tableBody = document.querySelector('tbody');
+    tableBody.addEventListener('click', modify);
+    const form = document.querySelector('form');
+    form.addEventListener('click', onSubmit);
 
-const url = 'http://localhost:3030/jsonstore/collections/books';
+    let editId = '';
 
-const loadBtn = document.querySelector('#loadBooks');
-const tBody = document.querySelector('tbody');
+    loadButton.addEventListener('click', onLoad);
 
-const form = document.querySelector('form');
-const h3 = form.querySelector('h3');
-const formBtn = form.querySelector('button');
-
-let bookId = '';
-
-function attachEvents() {
-    loadBtn.addEventListener('click', getBooks);
-    form.addEventListener('submit', createOrUpdateBook)
-}
-
-async function getBooks() {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    tBody.replaceChildren();
-    Object.entries(data).forEach(([key, info]) => {
-        let tr = htmlGenerator('tr', '', tBody);
-        tr.id = key;
-        htmlGenerator('td', `${info.title}`, tr);
-        htmlGenerator('td', `${info.author}`, tr);
-        let buttonsTd = htmlGenerator('td', '', tr);
-
-        let editBtn = htmlGenerator('button', 'Edit', buttonsTd);
-        editBtn.addEventListener('click', editBook);
-
-        let deleteBtn = htmlGenerator('button', 'Delete', buttonsTd);
-        deleteBtn.addEventListener('click', deleteBook);
-    })
-}
-
-async function createOrUpdateBook(e) {
-    e.preventDefault();
-
-    const data = new FormData(e.target);
-    let title = data.get('title');
-    let author = data.get('author');
-
-    let bookData = {
-        author,
-        title
-    }
-
-    if (formBtn.textContent == 'Save') {
-        if (!title || !author) {
-            alert('All fields are reqquired!');
+    async function onSubmit(e) {
+        e.preventDefault();
+        if (e.target.tagName !== 'BUTTON') return;
+        if (e.target.textContent == 'Save') {
+            onSave(e);
             return;
-        } else {
-            await fetch(`${url}/${bookId}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(bookData)
-            })
         }
 
-        h3.textContent = 'FORM';
-        formBtn.textContent = 'Submit';
-        
-    } else {
-        if (!title || !author) {
-            alert('All fields are reqquired!');
-            return;
-        } else {
-            await fetch(`${url}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(bookData)
-            })
+        let { title, author } = Object.fromEntries(new FormData(form).entries());
+        if (title == '' || author == '') return;
+        await fetch(baseUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, author })
+        });
+        document.querySelector('[name="title"]').value = '';
+        document.querySelector('[name="author"]').value = '';
+        onLoad();
+    }
+    async function onSave(e) {
+
+
+        let { title, author } = Object.fromEntries(new FormData(form).entries());
+
+        console.log(title, author);
+        if (title == '' || author == '') return;
+        document.querySelector('form h3').textContent = 'FORM';
+        document.querySelector('form button').textContent = 'Submit';
+        await fetch(`${baseUrl}/${editId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, author })
+        });
+        document.querySelector('[name="title"]').value = '';
+        document.querySelector('[name="author"]').value = '';
+        onLoad();
+    }
+    async function onLoad() {
+        let response = await fetch(baseUrl);
+        let data = Object.entries(await response.json());
+
+        tableBody.innerHTML = '';
+        console.log(data);
+
+        for (const [key, { author, title }] of data) {
+            let row = document.createElement('tr');
+
+            let buttonCell = document.createElement('td');
+            let editButton = createTag('button', 'Edit', null, key);
+            let deleteButton = createTag('button', 'Delete', null, key);
+            buttonCell.appendChild(editButton);
+            buttonCell.appendChild(deleteButton);
+
+            row.appendChild(createTag('td', title));
+            row.appendChild(createTag('td', author));
+            row.appendChild(buttonCell);
+
+            tableBody.appendChild(row)
+            console.log(key, title, author);
         }
     }
-    getBooks();
-    form.reset();
-}
-
-async function editBook(e) {
-    e.preventDefault();
-    bookId = e.target.parentNode.parentNode.id;
-
-    h3.textContent = 'Edit FORM';
-    formBtn.textContent = 'Save';
-
-    form.querySelector('input[name=title]').value = e.target.parentNode.parentNode.children[0].textContent;
-    form.querySelector('input[name=author]').value = e.target.parentNode.parentNode.children[1].textContent;
-}
-
-async function deleteBook(e) {
-    let bookId = e.target.parentNode.parentNode.getAttribute('id');
-
-    await fetch(`${url}/${bookId}`, {
-        method: 'DELETE',
-    });
-
-    getBooks();
-}
-
-function htmlGenerator(tag, content, parent) {
-    let el = document.createElement(tag);
-    el.textContent = content;
-
-    if (parent) {
-        parent.appendChild(el);
+    function modify(e) {
+        if (e.target.tagName !== 'BUTTON') return;
+        e.target.textContent == 'Edit' ? onEdit(e) : onDelete(e);
     }
-    return el;
+
+    async function onEdit(e) {
+        editId = e.target.id;
+        let title = e.target.parentNode.parentNode.children[0].textContent;
+        let author = e.target.parentNode.parentNode.children[1].textContent;
+
+        document.querySelector('[name="title"]').value = title;
+        document.querySelector('[name="author"]').value = author;
+
+        document.querySelector('form h3').textContent = 'Edit FORM';
+        document.querySelector('form button').textContent = 'Save';
+
+        e.target.parentNode.parentNode.remove();
+    };
+
+    async function onDelete(e) {
+        await fetch(`${baseUrl}/${e.target.id}`, {
+            method: 'delete',
+        });
+        e.target.parentNode.parentNode.remove();
+    };
+
+
+    function createTag(tag, text = null, className = null, id = null, type = null) {
+        let el = document.createElement(tag);
+        if (text) { el.textContent = text; }
+        if (type) { el.type = type; }
+        if (id) { el.id = id; }
+        if (className) { el.className = className; }
+        return el;
+    }
 }
+
+solve()
