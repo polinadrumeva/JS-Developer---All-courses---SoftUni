@@ -1,7 +1,7 @@
 import {html} from '../api/lib.js';
 
 const homeTemplate = () => html `
-<section class="welcome-content">
+    <section class="welcome-content">
             <article class="welcome-content-text">
                 <h1>We Care</h1>
                 <h1 class="bold-welcome">Your Pets</h1>
@@ -10,7 +10,7 @@ const homeTemplate = () => html `
             <article class="welcome-content-image">
                 <img src="./images/header-dog.png" alt="dog">
             </article>
-        </section>`;
+    </section>`;
 
 export function showHome(ctx) {
     ctx.render(homeTemplate());
