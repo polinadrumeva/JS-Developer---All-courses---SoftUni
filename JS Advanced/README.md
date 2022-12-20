@@ -18,5 +18,6 @@
 16. [**Classes - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Classes%20-%20Exercise)
 17. [**Prototypes and Inheritance - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Prototypes%20and%20Inheritance%20-%20Lab)
 18. [**Prototypes and Inheritance - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Prototypes%20and%20Inheritance%20-%20Exercise)
-19. [**Exam Preparation**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Exams)
+19. Workshop
+20. [**Exam Preparation**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/Exams)
 21. [**Regular Exam**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Advanced/EXAM)
