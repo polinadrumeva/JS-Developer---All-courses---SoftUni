@@ -12,12 +12,12 @@
 11. [**Architecture and Testing - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Architecture%20and%20Testing%20-%20Exercise)
 12. [**Client Side Rendering - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Client%20Side%20Rendering%20-%20Lab)
 13. [**Client Side Rendering - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Client%20Side%20Rendering%20-%20Exercise)
-14. Routing - Lab
-15. Routing - Exercise
+14. [**Routing - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Routing%20-%20Lab)
+15. [**Routing - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Routing%20-%20Exercise)
 16. Modular Applications - Lab
 17. Modular Applications - Exercise
 18. Workshop
 19. Workshop: Web Components
 20. [**Exam preparation**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Exam%20Preparation)
 21. [**Exams**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Exams)
-22. Regular Exam
+22. [**Regular Exam**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Regular%20Exam)
