@@ -17,7 +17,7 @@
 16. [**Modular Applications - Lab**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Modular%20Applications%20-%20Lab)
 17. [**Modular Applications - Exercise**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Modular%20Applications%20-%20Exercise)
 18. [**Workshop**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/WorkShop%20-%20CookBook)
-19. Workshop: Web Components
+19. [**Workshop: Web Components**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Workshop%20End-to-End%20Application)
 20. [**Exam preparation**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Exam%20Preparation)
 21. [**Exams**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Exams)
 22. [**Regular Exam**](https://github.com/polinadrumeva/JS-Developer---All-courses---SoftUni/tree/main/JS%20Applications/Regular%20Exam)
