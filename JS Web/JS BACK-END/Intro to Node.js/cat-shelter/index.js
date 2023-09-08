@@ -2,6 +2,7 @@ const http = require('http');
 
 const cats = require('./data/cats.json');
 const homePage = require('./views');
+const addBreed = require('./views/addBreed');
 const editCat = require('./views/editCat');
 const siteCss = require('./css/site.css');
 
@@ -12,7 +13,10 @@ const server = http.createServer((req, res) => {
 
     if (req.url == '/') {
         res.write(homePage);
-    } else if (/cats\/\d+\/edit/.test(req.url)) {
+    } else if (req.url == '/addBreed') {
+        res.write(addBreed);
+    } 
+    else if (/cats\/\d+\/edit/.test(req.url)) {
         let catId = req.url.split('/')[2];
         let cat = cats.find(x => x.id == catId);
         res.write(editCat(cat))

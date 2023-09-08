@@ -1,4 +1,4 @@
-const cats = require('../cats.json');
+const cats = require('../data/cats.json');
 
 module.exports = `
     <!DOCTYPE html>
